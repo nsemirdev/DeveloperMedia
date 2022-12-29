@@ -26,10 +26,12 @@ extension UIView {
         self.layer.insertSublayer(gradient, at: 0)
     }
     
-    func applyGradientBorder(colors: [UIColor], direction: DirectionType = .horizontal) {
+    func applyGradientBorder(colors: [UIColor], direction: DirectionType = .horizontal, cornerRadius: CGFloat = 0) {
         
         let gradient = CAGradientLayer()
         gradient.frame =  CGRect(origin: .zero, size: frame.size)
+        gradient.cornerRadius = cornerRadius
+
         if direction == .horizontal {
             gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
             gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
@@ -37,8 +39,6 @@ extension UIView {
             gradient.locations = [0,1]
         }
         
-        
-
         gradient.colors = colors.map { $0.cgColor }
 
         let shape = CAShapeLayer()
@@ -46,8 +46,10 @@ extension UIView {
         shape.path = UIBezierPath(rect: bounds).cgPath
         shape.strokeColor = UIColor.black.cgColor
         shape.fillColor = UIColor.clear.cgColor
+        shape.backgroundColor = UIColor.yellow.cgColor
+        shape.cornerRadius = cornerRadius
         gradient.mask = shape
-
+        
         layer.addSublayer(gradient)
     }
 }
