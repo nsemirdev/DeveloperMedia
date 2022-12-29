@@ -10,13 +10,22 @@ import Lottie
 import SnapKit
 
 final class OnboardingVC: UIViewController {
-
     
     // MARK: - UI Elements
     
-    var animationView: LottieAnimationView?
-    let signUpButton = DMButton(title: "Sign Up", cornerRadius: 14)
-    let signInButton = DMButton(title: "Sign In", cornerRadius: 14)
+    fileprivate var animationView: LottieAnimationView?
+    
+    fileprivate let signUpButton: DMButton = {
+        let button = DMButton(title: "Sign Up", cornerRadius: 14)
+        button.addTarget(nil, action: #selector(handleSignUpButton), for: .touchUpInside)
+        return button
+    }()
+    
+    fileprivate let signInButton: DMButton = {
+        let button = DMButton(title: "Sign In", cornerRadius: 14)
+        button.addTarget(nil, action: #selector(handleSignInButton), for: .touchUpInside)
+        return button
+    }()
     
     // MARK: - Lifecycle Methods
     
@@ -60,5 +69,21 @@ final class OnboardingVC: UIViewController {
         animationView?.loopMode = .loop
         animationView?.play()
         animationView?.frame = view.bounds
+    }
+    
+    fileprivate func presentViewController(to viewController: UIViewController) {
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.modalTransitionStyle = .crossDissolve
+        present(viewController, animated: true)
+    }
+    
+    // MARK: - OBJC Methods
+    
+    @objc fileprivate func handleSignUpButton() {
+        presentViewController(to: SignUpVC())
+    }
+    
+    @objc fileprivate func handleSignInButton() {
+        presentViewController(to: SignInVC())
     }
 }

@@ -19,6 +19,8 @@
 		FB064B99295D983900E68B7F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB064B98295D983900E68B7F /* UIColor.swift */; };
 		FB064B9B295D985200E68B7F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB064B9A295D985200E68B7F /* UIView.swift */; };
 		FB064B9E295E103300E68B7F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FB064B9D295E103300E68B7F /* SnapKit */; };
+		FB064BA0295E14CE00E68B7F /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB064B9F295E14CE00E68B7F /* SignInVC.swift */; };
+		FB064BA2295E1B2000E68B7F /* DMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB064BA1295E1B2000E68B7F /* DMTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		FB064B94295D904100E68B7F /* DMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMButton.swift; sourceTree = "<group>"; };
 		FB064B98295D983900E68B7F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		FB064B9A295D985200E68B7F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		FB064B9F295E14CE00E68B7F /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		FB064BA1295E1B2000E68B7F /* DMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				FB064B72295D897C00E68B7F /* SignUpVC.swift */,
+				FB064B9F295E14CE00E68B7F /* SignInVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				FB064B94295D904100E68B7F /* DMButton.swift */,
+				FB064BA1295E1B2000E68B7F /* DMTextField.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -226,8 +232,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB064BA2295E1B2000E68B7F /* DMTextField.swift in Sources */,
 				FB064B73295D897C00E68B7F /* SignUpVC.swift in Sources */,
 				FB064B99295D983900E68B7F /* UIColor.swift in Sources */,
+				FB064BA0295E14CE00E68B7F /* SignInVC.swift in Sources */,
 				FB064B92295D8C2E00E68B7F /* OnboardingVC.swift in Sources */,
 				FB064B9B295D985200E68B7F /* UIView.swift in Sources */,
 				FB064B6F295D897C00E68B7F /* AppDelegate.swift in Sources */,
