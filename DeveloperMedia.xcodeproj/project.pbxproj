@@ -12,6 +12,13 @@
 		FB064B73295D897C00E68B7F /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB064B72295D897C00E68B7F /* SignUpVC.swift */; };
 		FB064B78295D897F00E68B7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB064B77295D897F00E68B7F /* Assets.xcassets */; };
 		FB064B7B295D897F00E68B7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB064B79295D897F00E68B7F /* LaunchScreen.storyboard */; };
+		FB064B8A295D8B4D00E68B7F /* lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = FB064B89295D8B4D00E68B7F /* lottie.json */; };
+		FB064B8F295D8C0300E68B7F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FB064B8E295D8C0300E68B7F /* Lottie */; };
+		FB064B92295D8C2E00E68B7F /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB064B91295D8C2E00E68B7F /* OnboardingVC.swift */; };
+		FB064B95295D904100E68B7F /* DMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB064B94295D904100E68B7F /* DMButton.swift */; };
+		FB064B99295D983900E68B7F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB064B98295D983900E68B7F /* UIColor.swift */; };
+		FB064B9B295D985200E68B7F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB064B9A295D985200E68B7F /* UIView.swift */; };
+		FB064B9E295E103300E68B7F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FB064B9D295E103300E68B7F /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,11 @@
 		FB064B77295D897F00E68B7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB064B7A295D897F00E68B7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB064B7C295D897F00E68B7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB064B89295D8B4D00E68B7F /* lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie.json; sourceTree = "<group>"; };
+		FB064B91295D8C2E00E68B7F /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		FB064B94295D904100E68B7F /* DMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMButton.swift; sourceTree = "<group>"; };
+		FB064B98295D983900E68B7F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		FB064B9A295D985200E68B7F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB064B8F295D8C0300E68B7F /* Lottie in Frameworks */,
+				FB064B9E295E103300E68B7F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,8 +68,11 @@
 		FB064B6D295D897C00E68B7F /* DeveloperMedia */ = {
 			isa = PBXGroup;
 			children = (
-				FB064B85295D8A1C00E68B7F /* Supporting Files */,
+				FB064B97295D982A00E68B7F /* Extensions */,
 				FB064B82295D89E200E68B7F /* App Delegate */,
+				FB064B86295D8B2600E68B7F /* Resources */,
+				FB064B85295D8A1C00E68B7F /* Supporting Files */,
+				FB064B93295D903200E68B7F /* CustomViews */,
 				FB064B83295D8A0B00E68B7F /* Scenes */,
 			);
 			path = DeveloperMedia;
@@ -73,6 +90,7 @@
 		FB064B83295D8A0B00E68B7F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FB064B90295D8C2200E68B7F /* Onboarding */,
 				FB064B84295D8A1000E68B7F /* Auth */,
 			);
 			path = Scenes;
@@ -89,11 +107,44 @@
 		FB064B85295D8A1C00E68B7F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FB064B77295D897F00E68B7F /* Assets.xcassets */,
 				FB064B79295D897F00E68B7F /* LaunchScreen.storyboard */,
 				FB064B7C295D897F00E68B7F /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB064B86295D8B2600E68B7F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FB064B89295D8B4D00E68B7F /* lottie.json */,
+				FB064B77295D897F00E68B7F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FB064B90295D8C2200E68B7F /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				FB064B91295D8C2E00E68B7F /* OnboardingVC.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		FB064B93295D903200E68B7F /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				FB064B94295D904100E68B7F /* DMButton.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		FB064B97295D982A00E68B7F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FB064B98295D983900E68B7F /* UIColor.swift */,
+				FB064B9A295D985200E68B7F /* UIView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +163,10 @@
 			dependencies = (
 			);
 			name = DeveloperMedia;
+			packageProductDependencies = (
+				FB064B8E295D8C0300E68B7F /* Lottie */,
+				FB064B9D295E103300E68B7F /* SnapKit */,
+			);
 			productName = DeveloperMedia;
 			productReference = FB064B6B295D897C00E68B7F /* DeveloperMedia.app */;
 			productType = "com.apple.product-type.application";
@@ -140,6 +195,10 @@
 				Base,
 			);
 			mainGroup = FB064B62295D897C00E68B7F;
+			packageReferences = (
+				FB064B8D295D8C0300E68B7F /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				FB064B9C295E103300E68B7F /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = FB064B6C295D897C00E68B7F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -155,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB064B7B295D897F00E68B7F /* LaunchScreen.storyboard in Resources */,
+				FB064B8A295D8B4D00E68B7F /* lottie.json in Resources */,
 				FB064B78295D897F00E68B7F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,8 +227,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB064B73295D897C00E68B7F /* SignUpVC.swift in Sources */,
+				FB064B99295D983900E68B7F /* UIColor.swift in Sources */,
+				FB064B92295D8C2E00E68B7F /* OnboardingVC.swift in Sources */,
+				FB064B9B295D985200E68B7F /* UIView.swift in Sources */,
 				FB064B6F295D897C00E68B7F /* AppDelegate.swift in Sources */,
 				FB064B71295D897C00E68B7F /* SceneDelegate.swift in Sources */,
+				FB064B95295D904100E68B7F /* DMButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +446,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FB064B8D295D8C0300E68B7F /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		FB064B9C295E103300E68B7F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FB064B8E295D8C0300E68B7F /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB064B8D295D8C0300E68B7F /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		FB064B9D295E103300E68B7F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB064B9C295E103300E68B7F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FB064B63295D897C00E68B7F /* Project object */;
 }
