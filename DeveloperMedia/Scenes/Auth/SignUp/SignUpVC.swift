@@ -10,7 +10,7 @@ import Toast
 
 protocol SignUpVCInterface where Self: UIViewController {
     func animateTextField(on textField: DMTextField)
-    func registrationDidFinishWithError(description: String)
+    func registrationDidFinishWithError(description: String, style: ToastStyle)
     func registrationDidFinishWithSuccess()
     func hideToastActivity()
 }
@@ -34,6 +34,7 @@ final class SignUpVC: BaseAuthVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        viewModel = SignUpViewModel()
         setTextFields()
         configureStackView()
         stackView.addArrangedSubview(signUpButton)
@@ -80,15 +81,7 @@ extension SignUpVC: SignUpVCInterface {
         textField.animateError()
     }
     
-    func registrationDidFinishWithError(description: String) {
-        var style = ToastStyle()
-        style.messageColor = .white
-        style.backgroundColor = UIColor(hex: "#A49BFEFF")!
-        style.messageAlignment = .center
-        style.messageFont = .systemFont(ofSize: 21)
-        style.verticalPadding = 10
-        style.horizontalPadding = 30
-        style.displayShadow = true
+    func registrationDidFinishWithError(description: String, style: ToastStyle) {
         view.makeToast(description, position: .top, style: style)
     }
 }

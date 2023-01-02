@@ -5,9 +5,10 @@
 //  Created by Emir Alkal on 2.01.2023.
 //
 
-import Foundation
+import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import Toast
 
 fileprivate enum SignUpErrors: String, Error {
     case passwordsAreNotSame    = "Passwords are not same,\nplease retype."
@@ -25,11 +26,24 @@ final class SignUpViewModel {
     weak var delegate: SignUpVCInterface?
     var errorState = false
     
+    fileprivate func getToastStyle() -> ToastStyle {
+        var style = ToastStyle()
+        style.messageColor = .white
+        style.backgroundColor = UIColor(hex: "#A49BFEFF")!
+        style.messageAlignment = .center
+        style.messageFont = .systemFont(ofSize: 21)
+        style.verticalPadding = 10
+        style.horizontalPadding = 30
+        style.displayShadow = true
+        
+        return style
+    }
+    
     fileprivate func signUpUser(_ userInfo: User) {
         Auth.auth().createUser(withEmail: userInfo.email, password: userInfo.password) { [weak self] _, error in
             guard let self else { return }
             guard error == nil else {
-                self.delegate?.registrationDidFinishWithError(description: error!.localizedDescription)
+                self.delegate?.registrationDidFinishWithError(description: error!.localizedDescription, style: self.getToastStyle())
                 return
             }
             
@@ -59,7 +73,6 @@ extension SignUpViewModel: SignUpViewModelInterface {
     
     func registerRequest(with info: [DMTextField]) {
         errorState = false
-        
         info.forEach { txtField in
             if txtField.text.isEmpty {
                 error(on: txtField)
@@ -67,14 +80,14 @@ extension SignUpViewModel: SignUpViewModelInterface {
         }
         
         guard !errorState else {
-            delegate?.registrationDidFinishWithError(description: SignUpErrors.emptyFieldError.rawValue)
+            delegate?.registrationDidFinishWithError(description: SignUpErrors.emptyFieldError.rawValue, style: getToastStyle())
             return
         }
 
         if info[2].text != info[3].text {
             error(on: info[2])
             error(on: info[3])
-            delegate?.registrationDidFinishWithError(description: SignUpErrors.passwordsAreNotSame.rawValue)
+            delegate?.registrationDidFinishWithError(description: SignUpErrors.passwordsAreNotSame.rawValue, style: getToastStyle())
         } else {
             let user = User(email: info[1].text,
                             password: info[2].text,
