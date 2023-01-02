@@ -48,19 +48,19 @@ extension UIView {
     }
     
     func animateError() {
-        UIView.animate(withDuration: 0.3, delay: 0) { [weak self] in
+        UIView.animate(withDuration: 0.6, delay: 0) { [weak self] in
             guard let self else { return }
             self.layer.borderColor = UIColor.red.cgColor
             self.layer.borderWidth = 2
         } completion: { [weak self] _ in
             guard let self else { return }
-            UIView.animate(withDuration: 0.3, delay: 0) {
+            UIView.animate(withDuration: 0.6, delay: 0) {
                 self.layer.borderWidth = 1
                 self.layer.borderColor = #colorLiteral(red: 0.6451733708, green: 0.6105852723, blue: 0.9989337325, alpha: 1)
             }
         }
 
-        UIView.animate(withDuration: 0.3, delay: 0) { [weak self] in
+        UIView.animate(withDuration: 0.6, delay: 0) { [weak self] in
             guard let self else { return }
             self.layer.borderWidth = 2
         }

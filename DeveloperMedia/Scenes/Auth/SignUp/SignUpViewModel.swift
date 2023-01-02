@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import FirebaseAuth
+import FirebaseFirestore
 
 fileprivate enum SignUpErrors: String, Error {
     case passwordsAreNotSame    = "Passwords are not same,\nplease retype."
@@ -19,11 +21,33 @@ protocol SignUpViewModelInterface {
 }
 
 final class SignUpViewModel {
+    let db = Firestore.firestore()
     weak var delegate: SignUpVCInterface?
     var errorState = false
     
-    fileprivate func signUpUser() {
-        print("successfully signed up user")
+    fileprivate func signUpUser(_ userInfo: User) {
+        Auth.auth().createUser(withEmail: userInfo.email, password: userInfo.password) { [weak self] _, error in
+            guard let self else { return }
+            guard error == nil else {
+                self.delegate?.registrationDidFinishWithError(description: error!.localizedDescription)
+                return
+            }
+            
+            self.delegate?.registrationDidFinishWithSuccess()
+            self.db.collection("users").addDocument(data: [
+                "username": userInfo.username,
+                "mail": userInfo.email
+            ]) { error in
+                if error != nil {
+                    print(error!.localizedDescription)
+                    return
+                }
+                
+                let mainTabBar = MainTabBarController()
+                self.delegate?.present(mainTabBar, animated: true)
+                self.delegate?.hideToastActivity()
+            }
+        }
     }
 }
 
@@ -52,8 +76,11 @@ extension SignUpViewModel: SignUpViewModelInterface {
             error(on: info[3])
             delegate?.registrationDidFinishWithError(description: SignUpErrors.passwordsAreNotSame.rawValue)
         } else {
-            delegate?.registrationDidFinishWithSuccess()
-            signUpUser()
+            let user = User(email: info[1].text,
+                            password: info[2].text,
+                            username: info[0].text)
+            
+            signUpUser(user)
         }
     }
 }

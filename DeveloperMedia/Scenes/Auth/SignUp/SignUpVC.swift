@@ -8,10 +8,11 @@
 import UIKit
 import Toast
 
-protocol SignUpVCInterface: AnyObject {
+protocol SignUpVCInterface where Self: UIViewController {
     func animateTextField(on textField: DMTextField)
     func registrationDidFinishWithError(description: String)
     func registrationDidFinishWithSuccess()
+    func hideToastActivity()
 }
 
 final class SignUpVC: UIViewController {
@@ -139,6 +140,7 @@ final class SignUpVC: UIViewController {
     // MARK: - Business Logic
     
     @objc func handleSignUp() {
+        view.hideAllToasts()
         viewModel?.registerRequest(with: textFields)
     }
 }
@@ -146,6 +148,10 @@ final class SignUpVC: UIViewController {
 extension SignUpVC: SignUpVCInterface {
     func registrationDidFinishWithSuccess() {
         view.makeToastActivity(.center)
+    }
+    
+    func hideToastActivity() {
+        view.hideToastActivity()
     }
     
     func animateTextField(on textField: DMTextField) {
