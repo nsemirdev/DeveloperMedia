@@ -13,21 +13,15 @@ enum DirectionType {
 }
 
 extension UIView {
-
     func applyGradient(colors: [UIColor] = [UIColor(hex: "#A49BFEFF")!, UIColor(hex: "#7173EBFF")!]) {
-        self.applyGradient(colors: colors, locations: nil)
-    }
-    
-    func applyGradient(colors: [UIColor], locations: [NSNumber]?) {
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.frame = self.bounds
         gradient.colors = colors.map { $0.cgColor }
-        gradient.locations = locations
+        gradient.locations = [0, 1]
         self.layer.insertSublayer(gradient, at: 0)
     }
     
     func applyGradientBorder(colors: [UIColor], direction: DirectionType = .horizontal, cornerRadius: CGFloat = 0) {
-        
         let gradient = CAGradientLayer()
         gradient.frame =  CGRect(origin: .zero, size: frame.size)
         gradient.cornerRadius = cornerRadius
