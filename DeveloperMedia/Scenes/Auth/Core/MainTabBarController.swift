@@ -7,12 +7,19 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController {
+final class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupViewControllers()
     }
-    
+
+    fileprivate func setupViewControllers() {
+        // TO DO
+        let homeFeedVC = UIViewController()
+        homeFeedVC.view.backgroundColor = .systemTeal
+        homeFeedVC.tabBarItem.title = "Test"
+        homeFeedVC.modalPresentationStyle = .fullScreen
+        setViewControllers([homeFeedVC], animated: false)
+    }
 }
