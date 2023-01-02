@@ -8,7 +8,7 @@
 import UIKit
 import Toast
 
-protocol SignUpVCInterface where Self: UIViewController {
+protocol SignUpInterface where Self: UIViewController {
     func animateTextField(on textField: DMTextField)
     func registrationDidFinishWithError(description: String, style: ToastStyle)
     func registrationDidFinishWithSuccess()
@@ -68,7 +68,7 @@ final class SignUpVC: BaseAuthVC {
     }
 }
 
-extension SignUpVC: SignUpVCInterface {
+extension SignUpVC: SignUpInterface {
     func registrationDidFinishWithSuccess() {
         view.makeToastActivity(.center)
     }

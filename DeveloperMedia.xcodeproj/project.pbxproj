@@ -29,6 +29,8 @@
 		FB8F129D296351DF00458CBC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F129C296351DF00458CBC /* UserModel.swift */; };
 		FB8F12A2296355FC00458CBC /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F12A1296355FC00458CBC /* MainTabBarController.swift */; };
 		FB8F12A6296358C000458CBC /* BaseAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F12A5296358C000458CBC /* BaseAuthVC.swift */; };
+		FB8F12A82963616E00458CBC /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F12A72963616E00458CBC /* SignInViewModel.swift */; };
+		FB8F12AB2963622900458CBC /* ToastBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F12AA2963622900458CBC /* ToastBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		FB8F129C296351DF00458CBC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		FB8F12A1296355FC00458CBC /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		FB8F12A5296358C000458CBC /* BaseAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAuthVC.swift; sourceTree = "<group>"; };
+		FB8F12A72963616E00458CBC /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		FB8F12AA2963622900458CBC /* ToastBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +92,7 @@
 		FB064B6D295D897C00E68B7F /* DeveloperMedia */ = {
 			isa = PBXGroup;
 			children = (
-				FB71F4F329634D74008BEC94 /* GoogleService-Info.plist */,
+				FB8F12A92963621E00458CBC /* Builders */,
 				FB064B97295D982A00E68B7F /* Extensions */,
 				FB064B82295D89E200E68B7F /* App Delegate */,
 				FB064B86295D8B2600E68B7F /* Resources */,
@@ -132,6 +136,7 @@
 		FB064B85295D8A1C00E68B7F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FB71F4F329634D74008BEC94 /* GoogleService-Info.plist */,
 				FB064B79295D897F00E68B7F /* LaunchScreen.storyboard */,
 				FB064B7C295D897F00E68B7F /* Info.plist */,
 			);
@@ -194,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				FB064B9F295E14CE00E68B7F /* SignInVC.swift */,
+				FB8F12A72963616E00458CBC /* SignInViewModel.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -204,6 +210,14 @@
 				FB8F12A1296355FC00458CBC /* MainTabBarController.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		FB8F12A92963621E00458CBC /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				FB8F12AA2963622900458CBC /* ToastBuilder.swift */,
+			);
+			path = Builders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,7 +312,9 @@
 				FB064B99295D983900E68B7F /* UIColor.swift in Sources */,
 				FB064BA0295E14CE00E68B7F /* SignInVC.swift in Sources */,
 				FB064B92295D8C2E00E68B7F /* OnboardingVC.swift in Sources */,
+				FB8F12AB2963622900458CBC /* ToastBuilder.swift in Sources */,
 				FB064B9B295D985200E68B7F /* UIView.swift in Sources */,
+				FB8F12A82963616E00458CBC /* SignInViewModel.swift in Sources */,
 				FB064B6F295D897C00E68B7F /* AppDelegate.swift in Sources */,
 				FB064B71295D897C00E68B7F /* SceneDelegate.swift in Sources */,
 				FB064B95295D904100E68B7F /* DMButton.swift in Sources */,
