@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import Toast
 
 protocol SignUpVCInterface: AnyObject {
     func animateTextField(on textField: DMTextField)
+    func registrationDidFinishWithError(description: String)
+    func registrationDidFinishWithSuccess()
 }
 
 final class SignUpVC: UIViewController {
@@ -43,7 +46,9 @@ final class SignUpVC: UIViewController {
     
     fileprivate let logoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .blue
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.secondaryLabel.cgColor
+        imageView.backgroundColor = .clear
         imageView.layer.cornerRadius = 14
         return imageView
     }()
@@ -139,9 +144,23 @@ final class SignUpVC: UIViewController {
 }
 
 extension SignUpVC: SignUpVCInterface {
+    func registrationDidFinishWithSuccess() {
+        view.makeToastActivity(.center)
+    }
+    
     func animateTextField(on textField: DMTextField) {
         textField.animateError()
     }
     
-    
+    func registrationDidFinishWithError(description: String) {
+        var style = ToastStyle()
+        style.messageColor = .white
+        style.backgroundColor = UIColor(hex: "#A49BFEFF")!
+        style.messageAlignment = .center
+        style.messageFont = .systemFont(ofSize: 21)
+        style.verticalPadding = 10
+        style.horizontalPadding = 30
+        style.displayShadow = true
+        view.makeToast(description, position: .top, style: style)
+    }
 }

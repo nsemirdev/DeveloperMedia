@@ -7,6 +7,11 @@
 
 import Foundation
 
+fileprivate enum SignUpErrors: String, Error {
+    case passwordsAreNotSame    = "Passwords are not same,\nplease retype."
+    case emptyFieldError        = "Some fields are empty,\nplease fill."
+}
+
 protocol SignUpViewModelInterface {
     var delegate: SignUpVCInterface? { get set }
     func registerRequest(with info: [DMTextField])
@@ -37,12 +42,17 @@ extension SignUpViewModel: SignUpViewModelInterface {
             }
         }
         
-        guard !errorState else { return }
+        guard !errorState else {
+            delegate?.registrationDidFinishWithError(description: SignUpErrors.emptyFieldError.rawValue)
+            return
+        }
 
         if info[2].text != info[3].text {
             error(on: info[2])
             error(on: info[3])
+            delegate?.registrationDidFinishWithError(description: SignUpErrors.passwordsAreNotSame.rawValue)
         } else {
+            delegate?.registrationDidFinishWithSuccess()
             signUpUser()
         }
     }

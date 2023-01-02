@@ -22,6 +22,7 @@
 		FB064BA0295E14CE00E68B7F /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB064B9F295E14CE00E68B7F /* SignInVC.swift */; };
 		FB064BA2295E1B2000E68B7F /* DMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB064BA1295E1B2000E68B7F /* DMTextField.swift */; };
 		FB71F4EC29633D39008BEC94 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB71F4EB29633D39008BEC94 /* SignUpViewModel.swift */; };
+		FB71F4EF29634728008BEC94 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = FB71F4EE29634728008BEC94 /* Toast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB71F4EF29634728008BEC94 /* Toast in Frameworks */,
 				FB064B8F295D8C0300E68B7F /* Lottie in Frameworks */,
 				FB064B9E295E103300E68B7F /* SnapKit in Frameworks */,
 			);
@@ -183,6 +185,7 @@
 			packageProductDependencies = (
 				FB064B8E295D8C0300E68B7F /* Lottie */,
 				FB064B9D295E103300E68B7F /* SnapKit */,
+				FB71F4EE29634728008BEC94 /* Toast */,
 			);
 			productName = DeveloperMedia;
 			productReference = FB064B6B295D897C00E68B7F /* DeveloperMedia.app */;
@@ -215,6 +218,7 @@
 			packageReferences = (
 				FB064B8D295D8C0300E68B7F /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				FB064B9C295E103300E68B7F /* XCRemoteSwiftPackageReference "SnapKit" */,
+				FB71F4ED29634728008BEC94 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = FB064B6C295D897C00E68B7F /* Products */;
 			projectDirPath = "";
@@ -484,6 +488,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		FB71F4ED29634728008BEC94 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -496,6 +508,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FB064B9C295E103300E68B7F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		FB71F4EE29634728008BEC94 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB71F4ED29634728008BEC94 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
