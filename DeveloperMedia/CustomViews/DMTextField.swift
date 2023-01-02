@@ -11,6 +11,9 @@ import SnapKit
 final class DMTextField: UIView {
     
     // MARK: - UI Elements
+    var text: String {
+        textField.text ?? ""
+    }
     
     fileprivate let textField = UITextField()
 

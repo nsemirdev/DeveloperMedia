@@ -21,6 +21,7 @@
 		FB064B9E295E103300E68B7F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FB064B9D295E103300E68B7F /* SnapKit */; };
 		FB064BA0295E14CE00E68B7F /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB064B9F295E14CE00E68B7F /* SignInVC.swift */; };
 		FB064BA2295E1B2000E68B7F /* DMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB064BA1295E1B2000E68B7F /* DMTextField.swift */; };
+		FB71F4EC29633D39008BEC94 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB71F4EB29633D39008BEC94 /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		FB064B9A295D985200E68B7F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		FB064B9F295E14CE00E68B7F /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		FB064BA1295E1B2000E68B7F /* DMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMTextField.swift; sourceTree = "<group>"; };
+		FB71F4EB29633D39008BEC94 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,7 @@
 		FB064B84295D8A1000E68B7F /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				FB064B72295D897C00E68B7F /* SignUpVC.swift */,
+				FB71F4EA29633D2B008BEC94 /* SignUp */,
 				FB064B9F295E14CE00E68B7F /* SignInVC.swift */,
 			);
 			path = Auth;
@@ -151,6 +153,15 @@
 				FB064B9A295D985200E68B7F /* UIView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FB71F4EA29633D2B008BEC94 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				FB064B72295D897C00E68B7F /* SignUpVC.swift */,
+				FB71F4EB29633D39008BEC94 /* SignUpViewModel.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +245,7 @@
 			files = (
 				FB064BA2295E1B2000E68B7F /* DMTextField.swift in Sources */,
 				FB064B73295D897C00E68B7F /* SignUpVC.swift in Sources */,
+				FB71F4EC29633D39008BEC94 /* SignUpViewModel.swift in Sources */,
 				FB064B99295D983900E68B7F /* UIColor.swift in Sources */,
 				FB064BA0295E14CE00E68B7F /* SignInVC.swift in Sources */,
 				FB064B92295D8C2E00E68B7F /* OnboardingVC.swift in Sources */,

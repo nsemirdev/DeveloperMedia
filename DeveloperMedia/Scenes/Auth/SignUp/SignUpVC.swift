@@ -7,8 +7,18 @@
 
 import UIKit
 
+protocol SignUpVCInterface: AnyObject {
+    func animateTextField(on textField: DMTextField)
+}
+
 final class SignUpVC: UIViewController {
 
+    var viewModel: SignUpViewModelInterface? {
+        didSet {
+            viewModel?.delegate = self
+        }
+    }
+    
     // MARK: - UI Elements
     
     fileprivate lazy var contentViewSize = CGSize(width: self.view.frame.width, height: self.view.frame.height) {
@@ -50,11 +60,15 @@ final class SignUpVC: UIViewController {
     fileprivate let textFields = [
         DMTextField(placeHolder: "Your Name", leftImage: UIImage(named: "person")),
         DMTextField(placeHolder: "Your Email", leftImage: UIImage(named: "mail")),
-        DMTextField(placeHolder: "Your Password", leftImage: UIImage(named: "password"), rightImage: UIImage(named: "eye")),
-        DMTextField(placeHolder: "Confirm Password", leftImage: UIImage(named: "password"), rightImage: UIImage(named: "eye"))
+        DMTextField(placeHolder: "Your Password", leftImage: UIImage(named: "password"), rightImage: UIImage(named: "eye"), isSecureTextEntry: true),
+        DMTextField(placeHolder: "Confirm Password", leftImage: UIImage(named: "password"), rightImage: UIImage(named: "eye"), isSecureTextEntry: true)
     ]
     
-    fileprivate let signUpButton = DMButton(title: "Sign Up", cornerRadius: 4)
+    fileprivate let signUpButton: DMButton = {
+        let button = DMButton(title: "Sign Up", cornerRadius: 4)
+        button.addTarget(nil, action: #selector(handleSignUp), for: .touchUpInside)
+        return button
+    }()
     
     // MARK: - Lifecycle
 
@@ -69,14 +83,17 @@ final class SignUpVC: UIViewController {
         
         configureNotifications()
         layout()
+        
+        // Business Logic
+        viewModel = SignUpViewModel()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        signUpButton.applyGradient()
         textFields.forEach { txtField in
             txtField.applyGradientBorder(colors: [UIColor(hex: "#A49BFEFF")!, UIColor(hex: "#5F61F0FF")!])
         }
-        signUpButton.applyGradient()
     }
     
     // MARK: - Methods
@@ -96,6 +113,8 @@ final class SignUpVC: UIViewController {
         }
     }
     
+    // MARK: - Keyboard stuffs
+    
     fileprivate func configureNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -111,5 +130,18 @@ final class SignUpVC: UIViewController {
     @objc func keyboardWillDisappear() {
         contentViewSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
     }
+    
+    // MARK: - Business Logic
+    
+    @objc func handleSignUp() {
+        viewModel?.registerRequest(with: textFields)
+    }
 }
 
+extension SignUpVC: SignUpVCInterface {
+    func animateTextField(on textField: DMTextField) {
+        textField.animateError()
+    }
+    
+    
+}
