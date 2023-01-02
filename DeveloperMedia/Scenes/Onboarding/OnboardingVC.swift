@@ -52,13 +52,11 @@ final class OnboardingVC: UIViewController {
             make.leading.equalTo(40)
             make.trailing.equalTo(-40)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-40)
-            make.height.equalTo(50)
         }
         
         signInButton.snp.makeConstraints { make in
             make.leading.equalTo(40)
             make.trailing.equalTo(-40)
-            make.height.equalTo(50)
             make.bottom.equalTo(signUpButton.snp.top).offset(-20)
         }
     }

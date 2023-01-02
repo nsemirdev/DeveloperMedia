@@ -9,6 +9,10 @@ import UIKit
 
 final class DMButton: UIButton {
     
+    override var intrinsicContentSize: CGSize {
+        .init(width: 0, height: 50)
+    }
+    
     convenience init(title: String,
                      cornerRadius: CGFloat = 20,
                      gradientColors: [UIColor] = [UIColor(hex: "#A49BFEFF")!, UIColor(hex: "#7173EBFF")!],

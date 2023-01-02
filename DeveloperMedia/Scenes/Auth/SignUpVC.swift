@@ -38,13 +38,12 @@ final class SignUpVC: UIViewController {
         return imageView
     }()
     
-    fileprivate lazy var textFieldsStack: UIStackView = {
+    fileprivate lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 12
-        textFields.forEach { txtField in
-            stackView.addArrangedSubview(txtField)
-        }
+        textFields.forEach { stackView.addArrangedSubview($0) }
+        stackView.addArrangedSubview(signUpButton)
         return stackView
     }()
     
@@ -55,6 +54,8 @@ final class SignUpVC: UIViewController {
         DMTextField(placeHolder: "Confirm Password", leftImage: UIImage(named: "password"), rightImage: UIImage(named: "eye"))
     ]
     
+    fileprivate let signUpButton = DMButton(title: "Sign Up", cornerRadius: 4)
+    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -64,7 +65,7 @@ final class SignUpVC: UIViewController {
         
         scrollView.addSubview(containerView)
         containerView.addSubview(logoImageView)
-        containerView.addSubview(textFieldsStack)
+        containerView.addSubview(stackView)
         
         configureNotifications()
         layout()
@@ -75,6 +76,7 @@ final class SignUpVC: UIViewController {
         textFields.forEach { txtField in
             txtField.applyGradientBorder(colors: [UIColor(hex: "#A49BFEFF")!, UIColor(hex: "#5F61F0FF")!])
         }
+        signUpButton.applyGradient()
     }
     
     // MARK: - Methods
@@ -82,14 +84,14 @@ final class SignUpVC: UIViewController {
     fileprivate func layout() {
         logoImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(80)
-            make.leading.equalToSuperview().offset(60)
-            make.trailing.equalToSuperview().offset(-60)
+            make.leading.equalToSuperview().offset(50)
+            make.trailing.equalToSuperview().offset(-50)
             make.height.equalTo(logoImageView.snp.width)
         }
         
-        textFieldsStack.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(60)
-            make.trailing.equalToSuperview().offset(-60)
+        stackView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(50)
+            make.trailing.equalToSuperview().offset(-50)
             make.top.equalTo(logoImageView.snp.bottom).offset(24)
         }
     }
