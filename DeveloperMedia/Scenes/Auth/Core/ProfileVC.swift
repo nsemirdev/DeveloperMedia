@@ -77,7 +77,7 @@ final class ProfileVC: UIViewController {
             make.top.equalTo(profileImageView.snp.bottom).offset(30)
             make.leading.equalToSuperview().offset(10)
             make.trailing.equalToSuperview().offset(-10)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-30)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
     

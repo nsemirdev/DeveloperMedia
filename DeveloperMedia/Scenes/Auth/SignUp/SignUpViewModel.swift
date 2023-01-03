@@ -36,7 +36,7 @@ final class SignUpViewModel {
             self.delegate?.registrationDidFinishWithSuccess()
             self.db.collection("users").addDocument(data: [
                 "username": userInfo.username,
-                "mail": userInfo.email
+                "mail": userInfo.email.lowercased()
             ]) { error in
                 if error != nil {
                     print(error!.localizedDescription)

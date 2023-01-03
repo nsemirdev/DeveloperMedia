@@ -33,6 +33,7 @@
 		FB8F12AB2963622900458CBC /* ToastBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F12AA2963622900458CBC /* ToastBuilder.swift */; };
 		FB8F12AD29636E2E00458CBC /* HomeFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F12AC29636E2E00458CBC /* HomeFeedVC.swift */; };
 		FB8F12AF29636E9D00458CBC /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F12AE29636E9D00458CBC /* ProfileVC.swift */; };
+		FB8F12B12964667D00458CBC /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F12B02964667D00458CBC /* AddPostVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		FB8F12AA2963622900458CBC /* ToastBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastBuilder.swift; sourceTree = "<group>"; };
 		FB8F12AC29636E2E00458CBC /* HomeFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedVC.swift; sourceTree = "<group>"; };
 		FB8F12AE29636E9D00458CBC /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		FB8F12B02964667D00458CBC /* AddPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 				FB8F12A1296355FC00458CBC /* MainTabBarController.swift */,
 				FB8F12AC29636E2E00458CBC /* HomeFeedVC.swift */,
 				FB8F12AE29636E9D00458CBC /* ProfileVC.swift */,
+				FB8F12B02964667D00458CBC /* AddPostVC.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				FB8F12AD29636E2E00458CBC /* HomeFeedVC.swift in Sources */,
 				FB064B73295D897C00E68B7F /* SignUpVC.swift in Sources */,
 				FB8F12A2296355FC00458CBC /* MainTabBarController.swift in Sources */,
+				FB8F12B12964667D00458CBC /* AddPostVC.swift in Sources */,
 				FB71F4EC29633D39008BEC94 /* SignUpViewModel.swift in Sources */,
 				FB064B99295D983900E68B7F /* UIColor.swift in Sources */,
 				FB064BA0295E14CE00E68B7F /* SignInVC.swift in Sources */,

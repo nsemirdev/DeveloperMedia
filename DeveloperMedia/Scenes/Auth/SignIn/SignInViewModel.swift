@@ -32,6 +32,8 @@ extension SignInViewModel: SignInViewModelInterface {
                 self.delegate?.loginDidFinishWithError(description: error!.localizedDescription, style: .make())
                 return
             }
+            guard let _ = response?.user else { return }
+            let mail = info[0].text.lowercased()
             self.delegate?.loginDidFinishWithSuccess()
             var user: User?
             
@@ -43,8 +45,8 @@ extension SignInViewModel: SignInViewModelInterface {
                 
                 for document in snapshot!.documents {
                     guard let userData = document.data()["mail"] else { return }
-                    if userData as! String == info[0].text {
-                        user = User(email: info[0].text, password: info[1].text, username: document.data()["mail"] as! String)
+                    if userData as! String == mail {
+                        user = User(email: mail, password: info[1].text, username: document.data()["mail"] as! String)
                     }
                 }
                 self.loginUser(with: user!)
