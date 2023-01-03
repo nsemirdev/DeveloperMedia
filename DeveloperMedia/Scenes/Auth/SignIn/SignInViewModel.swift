@@ -56,6 +56,7 @@ extension SignInViewModel: SignInViewModelInterface {
         let mainTabBar = MainTabBarController()
         mainTabBar.currentUser = user
         mainTabBar.modalPresentationStyle = .fullScreen
+        mainTabBar.modalTransitionStyle = .flipHorizontal
         self.delegate?.present(mainTabBar, animated: true)
         self.delegate?.hideToastActivity()
     }

@@ -46,6 +46,7 @@ final class SignUpViewModel {
                 let mainTabBar = MainTabBarController()
                 mainTabBar.currentUser = userInfo
                 mainTabBar.modalPresentationStyle = .fullScreen
+                mainTabBar.modalTransitionStyle = .flipHorizontal
                 self.delegate?.present(mainTabBar, animated: true)
                 self.delegate?.hideToastActivity()
             }
