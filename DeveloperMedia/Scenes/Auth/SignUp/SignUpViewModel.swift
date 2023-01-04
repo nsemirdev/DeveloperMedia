@@ -32,6 +32,11 @@ final class SignUpViewModel {
         AuthManager.shared.signUp(with: userInfo, imageData: profileImage.pngData()!, delegate: delegate!) { result in
             switch result {
             case .success(let user):
+                UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                UserDefaults.standard.set(user.email, forKey: "email")
+                UserDefaults.standard.set(user.password, forKey: "password")
+                UserDefaults.standard.set(user.username, forKey: "username")
+                
                 let mainTabBar = MainTabBarController()
                 mainTabBar.currentUser = user
                 mainTabBar.modalPresentationStyle = .fullScreen
