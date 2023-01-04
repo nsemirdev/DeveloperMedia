@@ -54,15 +54,13 @@ final class SignUpViewModel {
                         print(error!.localizedDescription)
                         return
                     }
-                    print("successfully uploaded profile pic!")
+                    let mainTabBar = MainTabBarController()
+                    mainTabBar.currentUser = userInfo
+                    mainTabBar.modalPresentationStyle = .fullScreen
+                    mainTabBar.modalTransitionStyle = .flipHorizontal
+                    self.delegate?.present(mainTabBar, animated: true)
+                    self.delegate?.hideToastActivity()
                 }
-                
-                let mainTabBar = MainTabBarController()
-                mainTabBar.currentUser = userInfo
-                mainTabBar.modalPresentationStyle = .fullScreen
-                mainTabBar.modalTransitionStyle = .flipHorizontal
-                self.delegate?.present(mainTabBar, animated: true)
-                self.delegate?.hideToastActivity()
             }
         }
     }
