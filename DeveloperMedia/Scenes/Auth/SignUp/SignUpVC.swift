@@ -62,6 +62,7 @@ final class SignUpVC: BaseAuthVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        logoImageView.image = UIImage(named: "upload-image")
         viewModel = SignUpViewModel()
         setTextFields()
         configureStackView()

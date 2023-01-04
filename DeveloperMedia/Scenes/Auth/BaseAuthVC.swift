@@ -9,6 +9,13 @@ import UIKit
 
 class BaseAuthVC: UIViewController {
 
+    open var deviceWidth: CGFloat {
+        UIScreen.main.bounds.width
+    }
+    open var deviceHeight: CGFloat {
+        UIScreen.main.bounds.height
+    }
+    
     // MARK: - UI Elements
     
     fileprivate lazy var contentViewSize = CGSize(width: self.view.frame.width, height: self.view.frame.height) {
@@ -56,7 +63,6 @@ class BaseAuthVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubview(scrollView)
-        
         scrollView.addSubview(containerView)
         containerView.addSubview(logoImageView)
         containerView.addSubview(stackView)
@@ -76,9 +82,14 @@ class BaseAuthVC: UIViewController {
     
     fileprivate func layout() {
         logoImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(80)
-            make.leading.equalToSuperview().offset(50)
-            make.trailing.equalToSuperview().offset(-50)
+            make.top.equalToSuperview().offset(UIApplication.safeAreaInsets.top + 20)
+            if deviceHeight < 700 {
+                make.leading.equalToSuperview().offset(80)
+                make.trailing.equalToSuperview().offset(-80)
+            } else {
+                make.leading.equalToSuperview().offset(50)
+                make.trailing.equalToSuperview().offset(-50)
+            }
             make.height.equalTo(logoImageView.snp.width)
         }
         

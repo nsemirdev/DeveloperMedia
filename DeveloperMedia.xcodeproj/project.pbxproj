@@ -21,6 +21,7 @@
 		FB064B9E295E103300E68B7F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FB064B9D295E103300E68B7F /* SnapKit */; };
 		FB064BA0295E14CE00E68B7F /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB064B9F295E14CE00E68B7F /* SignInVC.swift */; };
 		FB064BA2295E1B2000E68B7F /* DMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB064BA1295E1B2000E68B7F /* DMTextField.swift */; };
+		FB08F9DC2965A01300EB2A3C /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB08F9DB2965A01300EB2A3C /* UIApplication.swift */; };
 		FB71F4EC29633D39008BEC94 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB71F4EB29633D39008BEC94 /* SignUpViewModel.swift */; };
 		FB71F4EF29634728008BEC94 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = FB71F4EE29634728008BEC94 /* Toast */; };
 		FB71F4F429634D74008BEC94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB71F4F329634D74008BEC94 /* GoogleService-Info.plist */; };
@@ -51,6 +52,7 @@
 		FB064B9A295D985200E68B7F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		FB064B9F295E14CE00E68B7F /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		FB064BA1295E1B2000E68B7F /* DMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMTextField.swift; sourceTree = "<group>"; };
+		FB08F9DB2965A01300EB2A3C /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		FB71F4EB29633D39008BEC94 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		FB71F4F329634D74008BEC94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB8F129C296351DF00458CBC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				FB064B98295D983900E68B7F /* UIColor.swift */,
 				FB064B9A295D985200E68B7F /* UIView.swift */,
+				FB08F9DB2965A01300EB2A3C /* UIApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				FB71F4EC29633D39008BEC94 /* SignUpViewModel.swift in Sources */,
 				FB064B99295D983900E68B7F /* UIColor.swift in Sources */,
 				FB064BA0295E14CE00E68B7F /* SignInVC.swift in Sources */,
+				FB08F9DC2965A01300EB2A3C /* UIApplication.swift in Sources */,
 				FB064B92295D8C2E00E68B7F /* OnboardingVC.swift in Sources */,
 				FB8F12AB2963622900458CBC /* ToastBuilder.swift in Sources */,
 				FB064B9B295D985200E68B7F /* UIView.swift in Sources */,
@@ -423,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -477,7 +481,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
