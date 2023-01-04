@@ -23,10 +23,38 @@ final class SignUpVC: BaseAuthVC {
         }
     }
    
+    // MARK: - UI Elements
+    
     fileprivate let signUpButton: DMButton = {
         let button = DMButton(title: "Sign Up", cornerRadius: 4)
         button.addTarget(nil, action: #selector(handleSignUp), for: .touchUpInside)
         return button
+    }()
+    
+    fileprivate let leftLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Already have an account?"
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = UIColor(hex: "#9999A7FF")
+        return label
+    }()
+    
+    fileprivate let rightButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Sign In", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 15)
+        button.addTarget(nil, action: #selector(handleRightButton), for: .touchUpInside)
+        return button
+    }()
+        
+    fileprivate lazy var labelStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 2
+        stackView.addArrangedSubview(leftLabel)
+        stackView.addArrangedSubview(rightButton)
+        stackView.addArrangedSubview(UIView())
+        return stackView
     }()
     
     // MARK: - Lifecycle
@@ -38,12 +66,15 @@ final class SignUpVC: BaseAuthVC {
         setTextFields()
         configureStackView()
         stackView.addArrangedSubview(signUpButton)
+        stackView.addArrangedSubview(labelStackView)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         signUpButton.applyGradient()
     }
+    
+    // MARK: - Methods
     
     fileprivate func setTextFields() {
         textFields = [
@@ -60,11 +91,21 @@ final class SignUpVC: BaseAuthVC {
         }
     }
 
+    fileprivate func presentViewController(to viewController: UIViewController) {
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.modalTransitionStyle = .flipHorizontal
+        present(viewController, animated: true)
+    }
+    
     // MARK: - Business Logic
 
     @objc func handleSignUp() {
         view.hideAllToasts()
         viewModel?.registerRequest(with: textFields)
+    }
+    
+    @objc fileprivate func handleRightButton() {
+        presentViewController(to: SignInVC())
     }
 }
 
