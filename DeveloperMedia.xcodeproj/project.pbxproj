@@ -26,6 +26,7 @@
 		FB08F9E12965AE1700EB2A3C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FB08F9E02965AE1700EB2A3C /* FirebaseFirestore */; };
 		FB08F9E32965AE1700EB2A3C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FB08F9E22965AE1700EB2A3C /* FirebaseStorage */; };
 		FB08F9E62965B49F00EB2A3C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FB08F9E52965B49F00EB2A3C /* SDWebImage */; };
+		FB08F9E92965C0B700EB2A3C /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB08F9E82965C0B700EB2A3C /* AuthManager.swift */; };
 		FB71F4EC29633D39008BEC94 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB71F4EB29633D39008BEC94 /* SignUpViewModel.swift */; };
 		FB71F4EF29634728008BEC94 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = FB71F4EE29634728008BEC94 /* Toast */; };
 		FB71F4F429634D74008BEC94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB71F4F329634D74008BEC94 /* GoogleService-Info.plist */; };
@@ -55,6 +56,7 @@
 		FB064B9F295E14CE00E68B7F /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		FB064BA1295E1B2000E68B7F /* DMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMTextField.swift; sourceTree = "<group>"; };
 		FB08F9DB2965A01300EB2A3C /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		FB08F9E82965C0B700EB2A3C /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FB71F4EB29633D39008BEC94 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		FB71F4F329634D74008BEC94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB8F129C296351DF00458CBC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		FB064B6D295D897C00E68B7F /* DeveloperMedia */ = {
 			isa = PBXGroup;
 			children = (
+				FB08F9E72965C0AF00EB2A3C /* Managers */,
 				FB8F12A92963621E00458CBC /* Builders */,
 				FB064B97295D982A00E68B7F /* Extensions */,
 				FB064B82295D89E200E68B7F /* App Delegate */,
@@ -192,6 +195,14 @@
 				FB08F9DB2965A01300EB2A3C /* UIApplication.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FB08F9E72965C0AF00EB2A3C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FB08F9E82965C0B700EB2A3C /* AuthManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		FB71F4EA29633D2B008BEC94 /* SignUp */ = {
@@ -357,6 +368,7 @@
 				FB064B99295D983900E68B7F /* UIColor.swift in Sources */,
 				FB064BA0295E14CE00E68B7F /* SignInVC.swift in Sources */,
 				FB08F9DC2965A01300EB2A3C /* UIApplication.swift in Sources */,
+				FB08F9E92965C0B700EB2A3C /* AuthManager.swift in Sources */,
 				FB064B92295D8C2E00E68B7F /* OnboardingVC.swift in Sources */,
 				FB8F12AB2963622900458CBC /* ToastBuilder.swift in Sources */,
 				FB064B9B295D985200E68B7F /* UIView.swift in Sources */,

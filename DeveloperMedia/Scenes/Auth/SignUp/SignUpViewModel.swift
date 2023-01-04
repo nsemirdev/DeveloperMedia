@@ -29,38 +29,17 @@ final class SignUpViewModel {
     var errorState = false
     
     fileprivate func signUpUser(_ userInfo: User, profileImage: UIImage) {
-        Auth.auth().createUser(withEmail: userInfo.email, password: userInfo.password) { [weak self] _, error in
-            guard let self else { return }
-            guard error == nil else {
-                self.delegate?.registrationDidFinishWithError(description: error!.localizedDescription, style: .make())
-                return
-            }
-            
-            self.delegate?.registrationDidFinishWithSuccess()
-            self.db.collection("users").addDocument(data: [
-                "username": userInfo.username,
-                "mail": userInfo.email.lowercased()
-            ]) { error in
-                if error != nil {
-                    print(error!.localizedDescription)
-                    return
-                }
-                
-                guard let imageData = profileImage.pngData() else { return }
-                let ref = self.storage.child("profile_images/\(userInfo.email.lowercased()).png")
-                
-                ref.putData(imageData) { _, error in
-                    if error != nil {
-                        print(error!.localizedDescription)
-                        return
-                    }
-                    let mainTabBar = MainTabBarController()
-                    mainTabBar.currentUser = userInfo
-                    mainTabBar.modalPresentationStyle = .fullScreen
-                    mainTabBar.modalTransitionStyle = .flipHorizontal
-                    self.delegate?.present(mainTabBar, animated: true)
-                    self.delegate?.hideToastActivity()
-                }
+        AuthManager.shared.signUp(with: userInfo, imageData: profileImage.pngData()!, delegate: delegate!) { result in
+            switch result {
+            case .success(let user):
+                let mainTabBar = MainTabBarController()
+                mainTabBar.currentUser = user
+                mainTabBar.modalPresentationStyle = .fullScreen
+                mainTabBar.modalTransitionStyle = .flipHorizontal
+                self.delegate?.present(mainTabBar, animated: true)
+                self.delegate?.hideToastActivity()
+            case .failure(let error):
+                self.delegate?.registrationDidFinishWithError(description: error.localizedDescription, style: .make())
             }
         }
     }
