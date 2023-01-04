@@ -44,6 +44,8 @@ class BaseAuthVC: UIViewController {
         imageView.layer.borderColor = UIColor.secondaryLabel.cgColor
         imageView.backgroundColor = .clear
         imageView.layer.cornerRadius = 14
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     

@@ -7,6 +7,8 @@
 
 import UIKit
 import Toast
+import Photos
+import PhotosUI
 
 protocol SignUpInterface where Self: UIViewController {
     func animateTextField(on textField: DMTextField)
@@ -62,7 +64,7 @@ final class SignUpVC: BaseAuthVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        logoImageView.image = UIImage(named: "upload-image")
+        configureImageView()
         viewModel = SignUpViewModel()
         setTextFields()
         configureStackView()
@@ -76,6 +78,13 @@ final class SignUpVC: BaseAuthVC {
     }
     
     // MARK: - Methods
+    
+    fileprivate func configureImageView() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleLogoImageView))
+        logoImageView.image = UIImage(named: "upload-image")
+        logoImageView.isUserInteractionEnabled = true
+        logoImageView.addGestureRecognizer(tapGesture)
+    }
     
     fileprivate func setTextFields() {
         textFields = [
@@ -107,6 +116,32 @@ final class SignUpVC: BaseAuthVC {
     
     @objc fileprivate func handleRightButton() {
         presentViewController(to: SignInVC())
+    }
+    
+    @objc fileprivate func handleLogoImageView() {
+        var config = PHPickerConfiguration(photoLibrary: .shared())
+        config.selectionLimit = 1
+        config.filter = .images
+        let vc = PHPickerViewController(configuration: config)
+        vc.delegate = self
+        present(vc,animated: true)
+    }
+}
+
+extension SignUpVC: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        results.last?.itemProvider.loadObject(ofClass: UIImage.self, completionHandler: { [weak self] image, error in
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            guard let image = image as? UIImage else { return }
+            DispatchQueue.main.async {
+                self?.logoImageView.image = image
+            }
+        })
     }
 }
 
