@@ -7,8 +7,12 @@
 
 import UIKit
 import SnapKit
+import FirebaseStorage
+import SDWebImage
 
 final class ProfileVC: UIViewController {
+    
+    fileprivate let storage = Storage.storage().reference().storage
     
     // MARK: - UI Elements
     
@@ -26,10 +30,11 @@ final class ProfileVC: UIViewController {
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.borderColor = UIColor.secondaryLabel.cgColor
+        imageView.layer.borderColor = UIColor.systemBlue.cgColor
         imageView.layer.borderWidth = 1
         imageView.layer.cornerRadius = 40
-        imageView.image = UIImage(named: "profile-image")
+        imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        imageView.backgroundColor = .white
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -53,6 +58,16 @@ final class ProfileVC: UIViewController {
         view.backgroundColor = .systemBackground
         postsCollectionView.delegate = self
         postsCollectionView.dataSource = self
+        storage.reference(withPath: "/profile_images/\((tabBarController as! MainTabBarController).currentUser.email.lowercased()).png").downloadURL { [weak self] url, error in
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self?.profileImageView.sd_setImage(with: url)
+            }
+        }
         view.addSubview(coverImageView)
         view.addSubview(profileImageView)
         view.addSubview(postsCollectionView)

@@ -111,7 +111,7 @@ final class SignUpVC: BaseAuthVC {
 
     @objc func handleSignUp() {
         view.hideAllToasts()
-        viewModel?.registerRequest(with: textFields)
+        viewModel?.registerRequest(with: textFields, profileImage: logoImageView.image!)
     }
     
     @objc fileprivate func handleRightButton() {

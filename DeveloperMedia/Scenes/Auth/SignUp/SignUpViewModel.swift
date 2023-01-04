@@ -7,7 +7,9 @@
 
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 import Toast
+import UIKit
 
 fileprivate enum SignUpErrors: String, Error {
     case passwordsAreNotSame    = "Passwords are not same,\nplease retype."
@@ -16,16 +18,17 @@ fileprivate enum SignUpErrors: String, Error {
 
 protocol SignUpViewModelInterface {
     var delegate: SignUpInterface? { get set }
-    func registerRequest(with info: [DMTextField])
+    func registerRequest(with info: [DMTextField], profileImage: UIImage)
     func error(on textField: DMTextField)
 }
 
 final class SignUpViewModel {
-    let db = Firestore.firestore()
+    fileprivate let db = Firestore.firestore()
+    fileprivate let storage = Storage.storage().reference()
     weak var delegate: SignUpInterface?
     var errorState = false
     
-    fileprivate func signUpUser(_ userInfo: User) {
+    fileprivate func signUpUser(_ userInfo: User, profileImage: UIImage) {
         Auth.auth().createUser(withEmail: userInfo.email, password: userInfo.password) { [weak self] _, error in
             guard let self else { return }
             guard error == nil else {
@@ -41,6 +44,17 @@ final class SignUpViewModel {
                 if error != nil {
                     print(error!.localizedDescription)
                     return
+                }
+                
+                guard let imageData = profileImage.pngData() else { return }
+                let ref = self.storage.child("profile_images/\(userInfo.email.lowercased()).png")
+                
+                ref.putData(imageData) { _, error in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                        return
+                    }
+                    print("successfully uploaded profile pic!")
                 }
                 
                 let mainTabBar = MainTabBarController()
@@ -60,7 +74,7 @@ extension SignUpViewModel: SignUpViewModelInterface {
         delegate?.animateTextField(on: textField)
     }
     
-    func registerRequest(with info: [DMTextField]) {
+    func registerRequest(with info: [DMTextField], profileImage: UIImage) {
         errorState = false
         info.forEach { txtField in
             if txtField.text.isEmpty {
@@ -82,7 +96,7 @@ extension SignUpViewModel: SignUpViewModelInterface {
                             password: info[2].text,
                             username: info[0].text)
             
-            signUpUser(user)
+            signUpUser(user, profileImage: profileImage)
         }
     }
 }
