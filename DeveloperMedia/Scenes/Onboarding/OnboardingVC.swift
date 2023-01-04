@@ -27,13 +27,19 @@ final class OnboardingVC: UIViewController {
         return button
     }()
     
+    fileprivate let backgroundImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "background"))
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        view.addSubview(backgroundImageView)
         setupLottie()
-        
         view.addSubview(signUpButton)
         view.addSubview(signInButton)
         layout()
@@ -41,6 +47,7 @@ final class OnboardingVC: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        backgroundImageView.frame = view.bounds
         signInButton.applyGradient()
         signUpButton.applyGradient()
     }
